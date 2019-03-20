@@ -79,7 +79,11 @@ Git的版本库里边好多东西 最重要的就是称为stage的暂存区 还有我们自动创建的一个分支
 15. 远程仓库
 现在你想做的在本地仓库创建了一个git仓库后 又想在github上创建一个git仓库 并且让这两个仓库进行远程同步，
 这样github上的仓库既可以作为备份又可以让其他人通过这个仓库来协作开发
-创建github远程仓库
+创建github远程仓库 
+然后连接本地仓库 可以根据github上的提示进行连接 输入命令git remote add origin 仓库的地址
+连接成功后可以执行 git push -u origin master 第一次把自己的本地的工作区文件提交到了本地仓库 之后的提交不需要加 -u
+此后再想同步github的文件 就直接将工作区文件 提交到本地仓库 通过 git add    git commit
+然后git push origin master 就可以提交成功了
 
 
 
