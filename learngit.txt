@@ -98,7 +98,9 @@ HEAD严格来说不是指向提交 master才是指向提交  HEAD指向的是当前的分支的
 然后可用git branch 查看所有的分支  前边有星号的是当前的分支
 现在就可以对文件修改并提交    就是在当前的dev分支上进行的操作了
 合并的话 切换回原来的master分支 git checkout master 回到master分支 然后进行合并 git merge dev 把dev分支的成果合并到master分支上
- 
+此时合并完成了 此时master分支上的内容，就有了dev分支上的修改结果了
+
+这次的合并是快速合并  合并后可以删除dev分支了
 
 
 
