@@ -117,6 +117,8 @@ HEAD严格来说不是指向提交 master才是指向提交  HEAD指向的是当前的分支的
 
 你和你的小伙伴每个人都在dev分支上干活 每个人都有自己的分支 ownname，时不时的往dev分支上合并就可以了 
 
+git merge --no-ff -m '将合并写进分支历史' dev
+用 git log -graph可以查看一个新的合并记录
 
 
 
