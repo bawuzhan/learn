@@ -85,6 +85,23 @@ Git的版本库里边好多东西 最重要的就是称为stage的暂存区 还有我们自动创建的一个分支
 此后再想同步github的文件 就直接将工作区文件 提交到本地仓库 通过 git add    git commit
 然后git push origin master 就可以提交成功了
 
+16.分支管理branch
+分支的作用  你创建属于自己的分支 进行开发 不会影响别人 别人也不会影响你  当开发完成的时候再进行分支合并就可以了
+创建分支与合并分支
+已经知道 每次提交 git都会把他们串成一条线  可以使用git reset 进行时间穿梭 那么这条线就是主分支 即master分支
+HEAD严格来说不是指向提交 master才是指向提交  HEAD指向的是当前的分支的
+每次提交 master分支的线就会越来越长
+当创建新的分支 例如dev时，git创建了一个新的指针dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上了
+创建分支之后 修改工作区的内容 就是针对dev分支了，如重新提交一次后，dev的指针往前移动一步 而master的指针不变
+合并 就是直接把master指向dev的当前提交就完成了合并
+创建分支的命令 git checkout -b dev  意思是创建并切换到分支dev
+然后可用git branch 查看所有的分支  前边有星号的是当前的分支
+现在就可以对文件修改并提交    就是在当前的dev分支上进行的操作了
+合并的话 切换回原来的master分支 git checkout master 回到master分支 然后进行合并 git merge dev 把dev分支的成果合并到master分支上
+ 
+
+
+
 
 
 
