@@ -122,7 +122,60 @@ git merge --no-ff -m '将合并写进分支历史' dev
 
 
 
-18.
+18.多人协作
+当你从远程仓库克隆时 实际上git自动把本地的master分支和远程的master分支对应起来 并且远程仓库的默认名是origin
+要查看远程仓库的信息 用 git remote -v
+推送分支
+就是把该分支上的所有本地提交推送到远程库 推送时要指定本地分支 这样git就会把分支推送到远程库对应的分支上
+git push origin master 推送master分支
+git push origin dev  推送dev分支
+
+但是不是所有的分支都需要推送到远程的仓库上
+master分支是主分支 因此要时刻与远程同步
+dev分支是开发分支 团队所有成员都需要在上边工作 所以也徐亚与远程同步
+其他的自己开发的部分的分支取决于是否需要与她人协作开发
+
+多人协作的工作模式是
+1.首先，可以试图使用git push origin 分支名 推送自己的修改
+2如果推送失败 则因为远程分支比你本地的更新 需要先用git pull试图合并
+3如果合并有冲突 则解决冲突 ，并在本地提交
+4如果没有冲突或已经解决掉了冲突 再用git push 推送能成功
+5如果没有git pull都没有成功 说明远程分支和本地分支没有创建连接关系
+用git branch --set-upsteam-to 分支名 origin/分支名
+
+在本地创建和远程分支对应的分支 命令 git checkout -b 分支名 origin/分支名
+建立本地分支和远程分支的关联 git branch -set-upstream 分支名 origin/分支名
+
+19git rebase 可以把本地未push的分叉提交历史整理成直线
+
+20fork
+在github上，可以任意fork开源的仓库到自己的仓库
+这样你在本地clone自己的地址后就可以与你fork的本地的仓库建立连接来修改fork过来的项目了
+但是如果你想提交到别人仓库的修改 贡献你的代码  那么需要申请用 pull request 当然很有可能对方不同意
+ 
+21码云gitee
+国内使用github网站可能很慢 可以使用国内的git托管服务-码云
+关联github的本地仓库要想关联码云 可以先取消关联github    git remote rm origin 然后关联码云 git remote add origin 码云的仓库地址
+此时 git remote -v 查到的就是关联到码云的origin仓库
+
+如果想要同时关联github和码云连个仓库可以
+git remote add github github的地址
+git remote add gitee 码云地址
+这时关联了两个远程仓库
+想要提交到github的master分支 就执行 git push github master
+提交到码云的master分支就执行 git push gitee master
+
+22忽略特殊文件
+在git工作区的根目录创建一个特殊的.gitignore文件，然后把要忽略的文件名填写进去 git就会自动忽略这些文件
+
+
+
+
+
+
+
+
+
 
 
 
